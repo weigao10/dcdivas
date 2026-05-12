@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DC Divas — WR Coach
 
-## Getting Started
+Play-by-play film review tool for the DC Divas wide receiver coaching staff. Log plays during film sessions, track receiver usage, and visualize per-player stats across games.
 
-First, run the development server:
+## Screenshots
+
+### Roster
+Manage the player roster with jersey numbers and positions.
+
+![Roster](./docs/roster.png)
+
+### Log Plays
+Select a game, set the possession and play number, then log each play — receivers on the line, play type, target, result, yards, and YAC. Rows appear instantly below and can be clicked to edit.
+
+![Log Plays](./docs/log-form.png)
+
+![Play Log](./docs/play-log.png)
+
+## Features
+
+- **Game management** — create games by opponent and date, switch between them, delete with confirmation
+- **Play logging** — possession and play auto-increment; editable counters; click any row to edit in place
+- **Receiver tracking** — check which receivers are on the line per play; WR targeted dropdown filters to only those receivers
+- **Results** — completion, drop, incompletion, turnover; yards gained and yards after catch
+- **Stats** — per-player target distribution, receiving yards, efficiency metrics, and a radar comparison chart
+
+## Stack
+
+- [Next.js](https://nextjs.org) (App Router)
+- [Supabase](https://supabase.com) (Postgres + RLS)
+- [shadcn/ui](https://ui.shadcn.com) + Tailwind CSS v4
+- [Recharts](https://recharts.org) for stats visualization
+
+## Local Development
+
+1. Clone the repo and install dependencies:
+
+```bash
+npm install
+```
+
+2. Create a `.env.local` file with your Supabase credentials:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-publishable-key
+```
+
+3. Run the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Database
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The schema is in [`supabase/schema.sql`](./supabase/schema.sql). Run it in the Supabase SQL editor to create the tables and RLS policies.
