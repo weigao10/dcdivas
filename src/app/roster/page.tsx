@@ -65,7 +65,7 @@ export default function RosterPage() {
       <div className="lg:col-span-2">
         <Card>
           <CardHeader>
-            <CardTitle className="text-base">Current Roster</CardTitle>
+            <CardTitle className="text-lg font-bold">Current Roster</CardTitle>
           </CardHeader>
           <CardContent>
             {loading ? (

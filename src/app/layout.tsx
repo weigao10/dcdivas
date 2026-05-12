@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geist.className} bg-stone-100 min-h-screen`}>
+      <body className={`${geist.className} bg-zinc-50 min-h-screen`}>
         <Nav />
         <main className="max-w-6xl mx-auto px-4 py-8">{children}</main>
         <Toaster richColors />

@@ -78,7 +78,7 @@ export default function StatsCharts({ stats }: Props) {
       {/* Target Distribution */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">Target Distribution</CardTitle>
+          <CardTitle className="text-lg font-bold">Target Distribution</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
@@ -100,7 +100,7 @@ export default function StatsCharts({ stats }: Props) {
       {/* Yards */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">Receiving Yards</CardTitle>
+          <CardTitle className="text-lg font-bold">Receiving Yards</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
@@ -120,7 +120,7 @@ export default function StatsCharts({ stats }: Props) {
       {/* Efficiency */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">Efficiency Metrics</CardTitle>
+          <CardTitle className="text-lg font-bold">Efficiency Metrics</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
@@ -142,7 +142,7 @@ export default function StatsCharts({ stats }: Props) {
       {stats.length > 1 && (
         <Card>
           <CardHeader>
-            <CardTitle className="text-base">Player Comparison</CardTitle>
+            <CardTitle className="text-lg font-bold">Player Comparison</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={350}>
@@ -172,7 +172,7 @@ export default function StatsCharts({ stats }: Props) {
         {stats.map((s, i) => (
           <Card key={s.player.id} style={{ borderTop: `3px solid ${COLORS[i % COLORS.length]}` }}>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-semibold">{playerLabel(s.player)}</CardTitle>
+              <CardTitle className="text-base font-bold">{playerLabel(s.player)}</CardTitle>
             </CardHeader>
             <CardContent>
               <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">

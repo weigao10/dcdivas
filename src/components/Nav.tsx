@@ -14,7 +14,7 @@ export default function Nav() {
   const pathname = usePathname()
 
   return (
-    <nav className="sticky top-0 z-10 shadow-lg bg-[#5A1414]">
+    <nav className="sticky top-0 z-10 bg-[#5A1414] shadow-[0_2px_12px_rgba(90,20,20,0.35)]">
       <div className="max-w-6xl mx-auto px-4 flex items-center gap-8 h-14">
         <div className="flex flex-col leading-tight">
           <span className="font-extrabold text-base tracking-tight text-white">DC Divas</span>

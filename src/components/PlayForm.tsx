@@ -113,15 +113,16 @@ export default function PlayForm({
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div className="flex gap-2">
+      <div className="flex bg-muted rounded-xl p-1 gap-1">
         {(['pass', 'run'] as PlayType[]).map(t => (
           <button
             key={t}
             type="button"
             onClick={() => setForm(f => ({ ...f, playType: t, result: '', wrTargeted: '', yardsAfterCatch: '' }))}
-            style={form.playType === t ? { backgroundColor: '#5A1414', borderColor: '#5A1414' } : undefined}
-            className={`flex-1 py-2 rounded-md border text-sm font-medium transition-colors capitalize ${
-              form.playType === t ? 'text-white' : 'border-slate-200 hover:border-stone-300 hover:bg-stone-50'
+            className={`flex-1 py-1.5 rounded-lg text-sm font-semibold transition-all capitalize ${
+              form.playType === t
+                ? 'bg-[#5A1414] text-white shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
             }`}
           >
             {t}

@@ -209,25 +209,30 @@ export default function LogPage() {
             </div>
 
             {selectedGameId && (
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-slate-500">Possession</span>
-                <input
-                  type="number"
-                  value={possessionNumber}
-                  min={1}
-                  onChange={e => { exitEditMode(); setPossessionNumber(Math.max(1, parseInt(e.target.value) || 1)) }}
-                  className="w-10 text-center font-bold border rounded px-1 py-0.5 focus:outline-none focus:ring-1 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                  style={{ borderColor: '#5A1414', color: '#5A1414' }}
-                />
-                <span className="text-slate-500">· Play</span>
-                <input
-                  type="number"
-                  value={playNumber}
-                  min={1}
-                  onChange={e => { exitEditMode(); setPlayNumber(Math.max(1, parseInt(e.target.value) || 1)) }}
-                  className="w-10 text-center font-bold border rounded px-1 py-0.5 focus:outline-none focus:ring-1 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                  style={{ borderColor: '#5A1414', color: '#5A1414' }}
-                />
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">Pos</span>
+                  <input
+                    type="number"
+                    value={possessionNumber}
+                    min={1}
+                    onChange={e => { exitEditMode(); setPossessionNumber(Math.max(1, parseInt(e.target.value) || 1)) }}
+                    className="w-10 text-center text-lg font-bold border-0 border-b-2 bg-transparent focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    style={{ borderColor: '#5A1414', color: '#5A1414' }}
+                  />
+                </div>
+                <span className="text-slate-300 text-lg">·</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">Play</span>
+                  <input
+                    type="number"
+                    value={playNumber}
+                    min={1}
+                    onChange={e => { exitEditMode(); setPlayNumber(Math.max(1, parseInt(e.target.value) || 1)) }}
+                    className="w-10 text-center text-lg font-bold border-0 border-b-2 bg-transparent focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    style={{ borderColor: '#5A1414', color: '#5A1414' }}
+                  />
+                </div>
                 <Button variant="outline" size="sm" onClick={handleNewPossession}>
                   New Possession →
                 </Button>
@@ -248,12 +253,12 @@ export default function LogPage() {
           Add players to your roster before logging plays.
         </p>
       ) : (
-        <Card>
+        <Card className={editingPlay ? 'border-t-2 border-t-blue-400' : 'border-t-2 border-t-[#5A1414]'}>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm text-slate-500 font-medium">
+            <CardTitle className="text-base font-bold">
               {editingPlay
-                ? `Editing — Possession ${editingPlay.possession_number} · Play ${editingPlay.play_number ?? '?'}`
-                : `New Play — Possession ${possessionNumber} · Play ${playNumber}`}
+                ? `Editing — Pos ${editingPlay.possession_number} · Play ${editingPlay.play_number ?? '?'}`
+                : `New Play — Pos ${possessionNumber} · Play ${playNumber}`}
             </CardTitle>
           </CardHeader>
           <CardContent className="pt-0">
@@ -273,7 +278,7 @@ export default function LogPage() {
       {selectedGameId && (
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-base flex items-center justify-between">
+            <CardTitle className="text-lg font-bold flex items-center justify-between">
               <span>{selectedGame?.name ?? 'Play Log'}</span>
               <span className="text-xs font-normal text-slate-400">
                 {plays.length} {plays.length === 1 ? 'play' : 'plays'} · click a row to edit
