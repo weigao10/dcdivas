@@ -16,6 +16,22 @@ Select a game, set the possession and play number, then log each play — receiv
 
 ![Play Log](./docs/play-log.png)
 
+### Analytics
+
+Filter by individual game or view totals across all games. Charts update instantly.
+
+**Target Distribution** — stacked bar showing completions, drops, incompletions, and turnovers per receiver.
+
+![Target Distribution](./docs/stats-targets.png)
+
+**Efficiency Metrics** — catch percentage, yards per catch, and yards per target side by side.
+
+![Efficiency Metrics](./docs/stats-efficiency.png)
+
+**Per-Player Cards** — at-a-glance summary for each receiver including plays on the field, targets, and yardage.
+
+![Player Cards](./docs/stats-cards.png)
+
 ## Features
 
 - **Game management** — create games by opponent and date, switch between them, delete with confirmation
